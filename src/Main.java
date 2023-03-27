@@ -78,15 +78,16 @@ public class Main {
 
         char[] stringToChar = wordPalindrome.toCharArray();
         int middleOfArray = (stringToChar.length / 2) - 1;
-        int toCheckPalindrome = 0;
+        boolean toCheckPalindrome = true;
 
         for (int i = 0; i <= middleOfArray; i++) {
             if (stringToChar[i] == stringToChar[(stringToChar.length - 1) - i]) {
-                toCheckPalindrome = toCheckPalindrome + 1;
+                toCheckPalindrome = true;
             }
+            else toCheckPalindrome = false;
         }
 
-        if (toCheckPalindrome == (middleOfArray + 1)) {
+        if (toCheckPalindrome == true) {
             System.out.println("The inserted word " + wordPalindrome + " is palindrome.");
         } else {
             System.out.println("The inserted word " + wordPalindrome + " is not a palindrome.");
@@ -158,15 +159,16 @@ public class Main {
         for (int i = 0; i <= minValue - 1; i++) {
             finalArray[i] = arrayFirst[i] + arraySecond[i];
         }
-        if (arrayFirst.length > arraySecond.length) {
-            for (int i = arraySecond.length; i <= finalArray.length - 1; i++) {
+
+        for (int i = minValue; i <= maxValue - 1; i++)
+        {
+            if (arrayFirst.length > arraySecond.length){
                 finalArray[i] = arrayFirst[i];
-            }
-        } else {
-            for (int i = arrayFirst.length; i <= finalArray.length - 1; i++) {
+            } else {
                 finalArray[i] = arraySecond[i];
             }
         }
+
         for (int i = 0; i <= finalArray.length - 1; i++) {
             System.out.println(finalArray[i]);
         }
