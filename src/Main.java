@@ -83,8 +83,7 @@ public class Main {
         for (int i = 0; i <= middleOfArray; i++) {
             if (stringToChar[i] == stringToChar[(stringToChar.length - 1) - i]) {
                 toCheckPalindrome = true;
-            }
-            else toCheckPalindrome = false;
+            } else toCheckPalindrome = false;
         }
 
         if (toCheckPalindrome == true) {
@@ -103,7 +102,7 @@ public class Main {
         int largerNumber = reader.nextInt();
         int lengthOfArray = (largerNumber - lowerNumber) - 1;
         int[] arrayOfNumbers = new int[lengthOfArray];
-        int[] arrayOfEvenNumbers = new int[lengthOfArray / 2];
+        int[] arrayOfEvenNumbers = new int[(lengthOfArray/2)+1];
         int j = 0;
 
         for (int i = 0; i <= arrayOfNumbers.length - 1; i++) {
@@ -160,9 +159,8 @@ public class Main {
             finalArray[i] = arrayFirst[i] + arraySecond[i];
         }
 
-        for (int i = minValue; i <= maxValue - 1; i++)
-        {
-            if (arrayFirst.length > arraySecond.length){
+        for (int i = minValue; i <= maxValue - 1; i++) {
+            if (arrayFirst.length > arraySecond.length) {
                 finalArray[i] = arrayFirst[i];
             } else {
                 finalArray[i] = arraySecond[i];
@@ -179,17 +177,24 @@ public class Main {
 
         String[] arrayOfString = {"Ima", "trp", "li", "u", "ART", "slm", "stringu", "znak", "krk", "brb"};
         String[] arrayOfStringToUpper = new String[arrayOfString.length];
+        String[] arrayOfStringsWithoutVowels = new String[arrayOfString.length];
         System.out.println(arrayOfString.length);
-        int numberOfStringsToRemove = 0;
+        int index = 0;
+        //int numberOfStringsToRemove = 0;
 
         for (int i = 0; i <= arrayOfString.length - 1; i++) {
             arrayOfStringToUpper[i] = arrayOfString[i].toUpperCase();
+
             if (arrayOfStringToUpper[i].contains("A") || arrayOfStringToUpper[i].contains("E") || arrayOfStringToUpper[i].contains("I") || arrayOfStringToUpper[i].contains("O") || arrayOfStringToUpper[i].contains("U")) {
-                numberOfStringsToRemove = numberOfStringsToRemove + 1;
+                //numberOfStringsToRemove = numberOfStringsToRemove + 1;
+
+            } else {
+                arrayOfStringsWithoutVowels[index]=arrayOfString[i];
+                index=index+1;
             }
         }
 
-        String[] arrayWithoutVowels = new String[arrayOfString.length - numberOfStringsToRemove];
+       /* String[] arrayWithoutVowels = new String[arrayOfString.length - numberOfStringsToRemove];
         int index = 0;
 
         for (int i = 0; i <= arrayOfString.length - 1; i++) {
@@ -198,12 +203,12 @@ public class Main {
                 arrayWithoutVowels[index] = arrayOfString[i];
                 index = index + 1;
             }
-        }
+        }*/
 
         System.out.println("New string array without strings containing vowels is: ");
 
-        for (int i = 0; i <= arrayWithoutVowels.length - 1; i++) {
-            System.out.println(arrayWithoutVowels[i]);
+        for (int i = 0; i <= arrayOfStringsWithoutVowels.length - 1; i++) {
+            System.out.println(arrayOfStringsWithoutVowels[i]);
         }
 
 
